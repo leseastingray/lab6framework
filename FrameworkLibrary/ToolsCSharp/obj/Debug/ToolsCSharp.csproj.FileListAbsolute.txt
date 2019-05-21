@@ -1,0 +1,6 @@
+C:\ElectricRay\cSharp\SQL\FrameworkLibrary\FrameworkLibrary\ToolsCSharp\bin\Debug\ToolsCSharp.dll
+C:\ElectricRay\cSharp\SQL\FrameworkLibrary\FrameworkLibrary\ToolsCSharp\bin\Debug\ToolsCSharp.pdb
+C:\ElectricRay\cSharp\SQL\FrameworkLibrary\FrameworkLibrary\ToolsCSharp\obj\Debug\ToolsCSharp.csprojAssemblyReference.cache
+C:\ElectricRay\cSharp\SQL\FrameworkLibrary\FrameworkLibrary\ToolsCSharp\obj\Debug\ToolsCSharp.csproj.CoreCompileInputs.cache
+C:\ElectricRay\cSharp\SQL\FrameworkLibrary\FrameworkLibrary\ToolsCSharp\obj\Debug\ToolsCSharp.dll
+C:\ElectricRay\cSharp\SQL\FrameworkLibrary\FrameworkLibrary\ToolsCSharp\obj\Debug\ToolsCSharp.pdb

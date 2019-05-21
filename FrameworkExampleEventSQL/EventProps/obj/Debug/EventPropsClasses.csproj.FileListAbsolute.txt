@@ -1,0 +1,9 @@
+C:\ElectricRay\cSharp\SQL\FrameworkLibrary\FrameworkExampleEventSQL\EventProps\bin\Debug\EventPropsClasses.dll
+C:\ElectricRay\cSharp\SQL\FrameworkLibrary\FrameworkExampleEventSQL\EventProps\bin\Debug\EventPropsClasses.pdb
+C:\ElectricRay\cSharp\SQL\FrameworkLibrary\FrameworkExampleEventSQL\EventProps\bin\Debug\ToolsCSharp.dll
+C:\ElectricRay\cSharp\SQL\FrameworkLibrary\FrameworkExampleEventSQL\EventProps\bin\Debug\ToolsCSharp.pdb
+C:\ElectricRay\cSharp\SQL\FrameworkLibrary\FrameworkExampleEventSQL\EventProps\obj\Debug\EventPropsClasses.csprojAssemblyReference.cache
+C:\ElectricRay\cSharp\SQL\FrameworkLibrary\FrameworkExampleEventSQL\EventProps\obj\Debug\EventPropsClasses.csproj.CoreCompileInputs.cache
+C:\ElectricRay\cSharp\SQL\FrameworkLibrary\FrameworkExampleEventSQL\EventProps\obj\Debug\EventPropsClasses.csproj.CopyComplete
+C:\ElectricRay\cSharp\SQL\FrameworkLibrary\FrameworkExampleEventSQL\EventProps\obj\Debug\EventPropsClasses.dll
+C:\ElectricRay\cSharp\SQL\FrameworkLibrary\FrameworkExampleEventSQL\EventProps\obj\Debug\EventPropsClasses.pdb
