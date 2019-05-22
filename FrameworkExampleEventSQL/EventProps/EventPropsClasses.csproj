@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="CustomerProps.cs" />
     <Compile Include="EventProps.cs" />
+    <Compile Include="ProductProps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

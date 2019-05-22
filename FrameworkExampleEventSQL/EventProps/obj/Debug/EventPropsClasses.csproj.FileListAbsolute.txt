@@ -7,3 +7,12 @@ C:\ElectricRay\cSharp\SQL\FrameworkLibrary\FrameworkExampleEventSQL\EventProps\o
 C:\ElectricRay\cSharp\SQL\FrameworkLibrary\FrameworkExampleEventSQL\EventProps\obj\Debug\EventPropsClasses.csproj.CopyComplete
 C:\ElectricRay\cSharp\SQL\FrameworkLibrary\FrameworkExampleEventSQL\EventProps\obj\Debug\EventPropsClasses.dll
 C:\ElectricRay\cSharp\SQL\FrameworkLibrary\FrameworkExampleEventSQL\EventProps\obj\Debug\EventPropsClasses.pdb
+C:\ElectricRay\lab6framework\FrameworkExampleEventSQL\EventProps\bin\Debug\EventPropsClasses.dll
+C:\ElectricRay\lab6framework\FrameworkExampleEventSQL\EventProps\bin\Debug\EventPropsClasses.pdb
+C:\ElectricRay\lab6framework\FrameworkExampleEventSQL\EventProps\bin\Debug\ToolsCSharp.dll
+C:\ElectricRay\lab6framework\FrameworkExampleEventSQL\EventProps\bin\Debug\ToolsCSharp.pdb
+C:\ElectricRay\lab6framework\FrameworkExampleEventSQL\EventProps\obj\Debug\EventPropsClasses.csprojAssemblyReference.cache
+C:\ElectricRay\lab6framework\FrameworkExampleEventSQL\EventProps\obj\Debug\EventPropsClasses.csproj.CoreCompileInputs.cache
+C:\ElectricRay\lab6framework\FrameworkExampleEventSQL\EventProps\obj\Debug\EventPropsClasses.csproj.CopyComplete
+C:\ElectricRay\lab6framework\FrameworkExampleEventSQL\EventProps\obj\Debug\EventPropsClasses.dll
+C:\ElectricRay\lab6framework\FrameworkExampleEventSQL\EventProps\obj\Debug\EventPropsClasses.pdb

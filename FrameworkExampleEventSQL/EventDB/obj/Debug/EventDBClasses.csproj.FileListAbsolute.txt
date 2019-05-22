@@ -9,3 +9,14 @@ C:\ElectricRay\cSharp\SQL\FrameworkLibrary\FrameworkExampleEventSQL\EventDB\obj\
 C:\ElectricRay\cSharp\SQL\FrameworkLibrary\FrameworkExampleEventSQL\EventDB\obj\Debug\EventDBClasses.csproj.CopyComplete
 C:\ElectricRay\cSharp\SQL\FrameworkLibrary\FrameworkExampleEventSQL\EventDB\obj\Debug\EventDBClasses.dll
 C:\ElectricRay\cSharp\SQL\FrameworkLibrary\FrameworkExampleEventSQL\EventDB\obj\Debug\EventDBClasses.pdb
+C:\ElectricRay\lab6framework\FrameworkExampleEventSQL\EventDB\bin\Debug\EventDBClasses.dll
+C:\ElectricRay\lab6framework\FrameworkExampleEventSQL\EventDB\bin\Debug\EventDBClasses.pdb
+C:\ElectricRay\lab6framework\FrameworkExampleEventSQL\EventDB\bin\Debug\EventPropsClasses.dll
+C:\ElectricRay\lab6framework\FrameworkExampleEventSQL\EventDB\bin\Debug\ToolsCSharp.dll
+C:\ElectricRay\lab6framework\FrameworkExampleEventSQL\EventDB\bin\Debug\EventPropsClasses.pdb
+C:\ElectricRay\lab6framework\FrameworkExampleEventSQL\EventDB\bin\Debug\ToolsCSharp.pdb
+C:\ElectricRay\lab6framework\FrameworkExampleEventSQL\EventDB\obj\Debug\EventDBClasses.csprojAssemblyReference.cache
+C:\ElectricRay\lab6framework\FrameworkExampleEventSQL\EventDB\obj\Debug\EventDBClasses.csproj.CoreCompileInputs.cache
+C:\ElectricRay\lab6framework\FrameworkExampleEventSQL\EventDB\obj\Debug\EventDBClasses.csproj.CopyComplete
+C:\ElectricRay\lab6framework\FrameworkExampleEventSQL\EventDB\obj\Debug\EventDBClasses.dll
+C:\ElectricRay\lab6framework\FrameworkExampleEventSQL\EventDB\obj\Debug\EventDBClasses.pdb
