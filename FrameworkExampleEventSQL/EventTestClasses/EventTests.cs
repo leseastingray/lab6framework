@@ -27,7 +27,7 @@ namespace EventTestClasses
     {
         //private string folder = "C:\\Courses\\CS234CSharp\\Demos\\FrameworkExampleEvent\\Files\\";
         // *** changed the name AND folder to db connection string
-        private string dataSource="Data Source=19158-S17809\\mssqlserver2014;Initial Catalog=EventCalendar;Integrated Security=True";
+        private string dataSource= "Data Source=1912851-C20251;Initial Catalog=EventCalendar;Integrated Security=True";
 
         [Test]
         public void TestNewEventConstructor()
