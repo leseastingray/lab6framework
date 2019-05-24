@@ -20,11 +20,13 @@ namespace EventTestClasses
         //private string folder = "C:\\Courses\\CS234CSharp\\Demos\\FrameworkExampleEvent\\Files\\";
         // *** changed the name AND folder to db connection string
         private string dataSource = "Data Source=1912851-C20251;Initial Catalog=MMABooksUpdated;Integrated Security=True";
+        private CustomerSQLDB db;
+
 
         [SetUp]
         public void TestResetDatabase()
         {
-            EventSQLDB db = new EventSQLDB(dataSource);
+            CustomerSQLDB db = new CustomerSQLDB(dataSource);
             DBCommand command = new DBCommand();
             command.CommandText = "usp_testingResetData";
             command.CommandType = CommandType.StoredProcedure;
@@ -34,13 +36,59 @@ namespace EventTestClasses
         [Test]
         public void TestRetrieve()
         {
-            CustomerSQLDB db = new CustomerSQLDB(dataSource);
             // remember to cast!
             CustomerProps props = (CustomerProps)db.Retrieve(23);
             //23 Newlin, Sherman 2400 Bel Air, Apt. 345 Bronfield CO 80020
             Assert.AreEqual(23, props.ID);
             Assert.AreEqual("Newlin, Sherman", props.name);
         }
+
+        [Test]
+        public void TestRetrieveAll()
+        {
+
+        }
+
+        [Test]
+        public void TestCreateCustomer()
+        {
+            // declare and instantiate new CustomerProps c
+            CustomerProps c = new CustomerProps();
+            c.ID = 6667;
+            c.name = "John Rolfe";
+            c.address = "1 Branch Hut";
+            c.city = "Jamestown";
+            c.state = "VA";
+            c.zipcode = "23233";
+
+            // Create record for c in the database
+            db.Create(c);
+
+            // Retrieve Customer c from the database and store in variable cCreated
+            CustomerProps cCreated = (CustomerProps)db.Retrieve(c.ID);
+
+            Assert.AreEqual("John Rolfe", cCreated.name);
+            Assert.AreEqual("23233", cCreated.zipcode);
+        }
+
+        [Test]
+        public void TestDeleteCustomer()
+        {
+            CustomerSQLDB db = new CustomerSQLDB(dataSource);
+            CustomerProps props = (CustomerProps)db.Retrieve(7);
+            //(7, N'Lutonsky, Christopher', N'293 Old Holcomb Bridge Way', N'Woodland Hills', N'CA', N'91365          ')   
+
+            // delete CustomerProps props from the database
+            db.Delete(props);
+
+            // attempting to retrieve props from the database should result in exception throw
+            Assert.Throws<Exception>(() => db.Retrieve(7));
+            // customerid should be equal to null
+            Assert.AreEqual(null, props.ID);
+
+
+        }
+
         [Test]
         public void TestUpdate()
         {
@@ -55,5 +103,6 @@ namespace EventTestClasses
 
             Assert.AreEqual("NY", props.state);
         }
+
     }
 }

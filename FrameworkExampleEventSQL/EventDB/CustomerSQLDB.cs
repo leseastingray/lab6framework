@@ -29,15 +29,92 @@ namespace EventDBClasses
         public CustomerSQLDB(DBConnection cn) : base(cn) { }
 
         // interface implementation methods
-        public IBaseProps Create(IBaseProps props)
+        public IBaseProps Create(IBaseProps p)
         {
-            throw new NotImplementedException();
+            int rowsAffected = 0;
+            CustomerProps props = (CustomerProps)p;
+
+            DBCommand command = new DBCommand();
+            command.CommandText = "usp_CustomerCreate";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@CustomerID", SqlDbType.Int);
+            command.Parameters.Add("@Name", SqlDbType.VarChar);
+            command.Parameters.Add("@Address", SqlDbType.VarChar);
+            command.Parameters.Add("@City", SqlDbType.VarChar);
+            command.Parameters.Add("@State", SqlDbType.Char);
+            command.Parameters.Add("@City", SqlDbType.Char);
+            command.Parameters.Add("@ConcurrencyID", SqlDbType.Int);
+            command.Parameters[0].Direction = ParameterDirection.Output;
+            command.Parameters["@CustomerID"].Value = props.ID;
+            command.Parameters["@Name"].Value = props.name;
+            command.Parameters["@Address"].Value = props.address;
+            command.Parameters["@City"].Value = props.city;
+            command.Parameters["@State"].Value = props.state;
+            command.Parameters["@ZipCode"].Value = props.zipcode;
+            command.Parameters["@ConcurrencyID"].Value = props.ConcurrencyID;
+
+            try
+            {
+                rowsAffected = RunNonQueryProcedure(command);
+                if (rowsAffected == 1)
+                {
+                    props.ID = (int)command.Parameters[0].Value;
+                    props.ConcurrencyID = 1;
+                    return props;
+                }
+                else
+                    throw new Exception("Unable to insert record. " + props.ToString());
+            }
+            catch (Exception e)
+            {
+                // log this error
+                throw;
+            }
+            finally
+            {
+                if (mConnection.State == ConnectionState.Open)
+                    mConnection.Close();
+            }
         }
 
-        public bool Delete(IBaseProps props)
+        public bool Delete(IBaseProps p)
         {
-            throw new NotImplementedException();
-        }
+            CustomerProps props = (CustomerProps)p;
+            int rowsAffected = 0;
+
+            DBCommand command = new DBCommand();
+            command.CommandText = "usp_CustomerDelete";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@CustomerID", SqlDbType.Int);
+            command.Parameters.Add("@ConcurrencyID", SqlDbType.Int);
+            command.Parameters["@CustomerID"].Value = props.ID;
+            command.Parameters["@ConcurrencyID"].Value = props.ConcurrencyID;
+
+            try
+            {
+                rowsAffected = RunNonQueryProcedure(command);
+                if (rowsAffected == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    string message = "Record cannot be deleted. It has been edited by another user.";
+                    throw new Exception(message);
+                }
+
+            }
+            catch (Exception e)
+            {
+                // log this exception
+                throw;
+            }
+            finally
+            {
+                if (mConnection.State == ConnectionState.Open)
+                    mConnection.Close();
+            }
+        } // end of Delete()
 
         // returns one object
         public IBaseProps Retrieve(Object key)

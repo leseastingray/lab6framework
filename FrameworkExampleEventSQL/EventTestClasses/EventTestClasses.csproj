@@ -49,7 +49,6 @@
   <ItemGroup>
     <Compile Include="CustomerDBTests.cs" />
     <Compile Include="CustomerPropsTests.cs" />
-    <Compile Include="CustomerSQLDBTests.cs" />
     <Compile Include="EventTests.cs" />
     <Compile Include="ProductPropsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
