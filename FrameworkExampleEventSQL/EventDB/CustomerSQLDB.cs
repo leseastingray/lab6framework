@@ -42,16 +42,13 @@ namespace EventDBClasses
             command.Parameters.Add("@Address", SqlDbType.VarChar);
             command.Parameters.Add("@City", SqlDbType.VarChar);
             command.Parameters.Add("@State", SqlDbType.Char);
-            command.Parameters.Add("@City", SqlDbType.Char);
-            command.Parameters.Add("@ConcurrencyID", SqlDbType.Int);
+            command.Parameters.Add("@ZipCode", SqlDbType.Char);
             command.Parameters[0].Direction = ParameterDirection.Output;
-            command.Parameters["@CustomerID"].Value = props.ID;
             command.Parameters["@Name"].Value = props.name;
             command.Parameters["@Address"].Value = props.address;
             command.Parameters["@City"].Value = props.city;
             command.Parameters["@State"].Value = props.state;
             command.Parameters["@ZipCode"].Value = props.zipcode;
-            command.Parameters["@ConcurrencyID"].Value = props.ConcurrencyID;
 
             try
             {
@@ -169,7 +166,7 @@ namespace EventDBClasses
 
             try
             {
-                reader = RunProcedure("usp_EventSelectAll");
+                reader = RunProcedure("usp_CustomerSelectAll");
                 if (!reader.IsClosed)
                 {
                     while (reader.Read())

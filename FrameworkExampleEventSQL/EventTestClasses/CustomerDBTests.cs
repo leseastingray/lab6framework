@@ -20,8 +20,6 @@ namespace EventTestClasses
         //private string folder = "C:\\Courses\\CS234CSharp\\Demos\\FrameworkExampleEvent\\Files\\";
         // *** changed the name AND folder to db connection string
         private string dataSource = "Data Source=1912851-C20251;Initial Catalog=MMABooksUpdated;Integrated Security=True";
-        private CustomerSQLDB db;
-
 
         [SetUp]
         public void TestResetDatabase()
@@ -36,6 +34,7 @@ namespace EventTestClasses
         [Test]
         public void TestRetrieve()
         {
+            CustomerSQLDB db = new CustomerSQLDB(dataSource);
             // remember to cast!
             CustomerProps props = (CustomerProps)db.Retrieve(23);
             //23 Newlin, Sherman 2400 Bel Air, Apt. 345 Bronfield CO 80020
@@ -46,15 +45,20 @@ namespace EventTestClasses
         [Test]
         public void TestRetrieveAll()
         {
+            CustomerSQLDB db = new CustomerSQLDB(dataSource);
+            // create and fill list of CustomerProps
+            List<CustomerProps> cProps = (List<CustomerProps>)db.RetrieveAll(db.GetType());
 
+            // cProps count should be equal to 696 (length of MMABooksUpdated Customers table)
+            Assert.AreEqual(696, cProps.Count);
         }
 
         [Test]
         public void TestCreateCustomer()
         {
+            CustomerSQLDB db = new CustomerSQLDB(dataSource);
             // declare and instantiate new CustomerProps c
             CustomerProps c = new CustomerProps();
-            c.ID = 6667;
             c.name = "John Rolfe";
             c.address = "1 Branch Hut";
             c.city = "Jamestown";
@@ -83,9 +87,6 @@ namespace EventTestClasses
 
             // attempting to retrieve props from the database should result in exception throw
             Assert.Throws<Exception>(() => db.Retrieve(7));
-            // customerid should be equal to null
-            Assert.AreEqual(null, props.ID);
-
 
         }
 

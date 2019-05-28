@@ -42,6 +42,7 @@
     <Compile Include="CustomerSQLDB.cs" />
     <Compile Include="EventSQLDB.cs" />
     <Compile Include="EventTextDB.cs" />
+    <Compile Include="ProductSQLDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
