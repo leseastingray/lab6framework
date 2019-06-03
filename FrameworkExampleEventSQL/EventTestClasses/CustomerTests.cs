@@ -37,16 +37,38 @@ namespace EventTestClasses
             command.CommandType = CommandType.StoredProcedure;
             db.RunNonQueryProcedure(command);
         }
-
+        // Constructor Tests
         [Test]
-        public void TestNewCustomerConstructor()
+        public void TestNewCustomerConstructor1()
         {
             // not in Data Store - no id
             Customer c = new Customer(dataSource);
             Console.WriteLine(c.ToString());
             Assert.Greater(c.ToString().Length, 1);
         }
-
+        [Test]
+        public void TestNewCustomerConstructor2()
+        {
+            // in Data Store, using key
+            // 1  Molunguri, A  1108 Johanna Bay Drive  Birmingham AL 35216-6909 
+            Customer c = new Customer(1, dataSource);
+            Console.WriteLine(c.ToString());
+            Assert.Greater(c.ToString().Length, 1);
+            Assert.AreEqual("AL", c.State);
+        }
+        [Test]
+        public void TestNewCustomerConstructor3()
+        {
+            // using CustomerProps and connection string
+            CustomerSQLDB db = new CustomerSQLDB(dataSource);
+            CustomerProps cProps = (CustomerProps)db.Retrieve(7);
+            // 7  Lutonsky, Christopher  293 Old Holcomb Bridge Way  Woodland Hills CA 91365           
+            Customer c = new Customer(cProps, dataSource);
+            Console.WriteLine(c.ToString());
+            Assert.Greater(c.ToString().Length, 1);
+            Assert.AreEqual("Woodland Hills", c.City);
+            Assert.AreEqual("91365", c.Zipcode);
+        }
         [Test]
         public void TestRetrieveFromDataStoreContructor()
         {
@@ -131,6 +153,25 @@ namespace EventTestClasses
         }
         // Invalid Property Settings Tests
         [Test]
+        public void TestInvalidPropertyNameSet()
+        {
+            Customer c = new Customer(dataSource);
+            Assert.Throws<ArgumentException>(() => 
+                c.Name = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz");
+        }
+        [Test]
+        public void TestInvalidPropertyAddressSet()
+        {
+            Customer c = new Customer(dataSource);
+            Assert.Throws<ArgumentException>(() => c.Address = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz");
+        }
+        [Test]
+        public void TestInvalidPropertyCitySet()
+        {
+            Customer c = new Customer(dataSource);
+            Assert.Throws<ArgumentException>(() => c.City = "abcdefghijklmnopqrstuvwxyz");
+        }
+        [Test]
         public void TestInvalidPropertyStateSet()
         {
             Customer c = new Customer(dataSource);
@@ -142,18 +183,6 @@ namespace EventTestClasses
             Customer c = new Customer(dataSource);
             Assert.Throws<ArgumentException>(() => c.Zipcode = "1234567890123456789");
         }
-        // *** I added this
-        [Test]
-        public void TestConcurrencyIssue()
-        {
-            Event e1 = new Event(1, dataSource);
-            Event e2 = new Event(1, dataSource);
 
-            e1.Title = "Updated this first";
-            e1.Save();
-
-            e2.Title = "Updated this second";
-            Assert.Throws<Exception>(() => e2.Save());
-        }
     }
 }

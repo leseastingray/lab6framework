@@ -75,7 +75,8 @@ namespace EventPropsClasses
         public void SetState(DBDataReader dr)
         {
             this.ID = (Int32)dr["ProductID"];
-            this.prodCode = (string)dr["ProductCode"];
+            // notice the added trim! important
+            this.prodCode = ((string)dr["ProductCode"]).Trim();
             this.description = (string)dr["Description"];
             this.unitPrice = (decimal)dr["UnitPrice"];
             this.onHandQuantity = (int)dr["OnHandQuantity"];

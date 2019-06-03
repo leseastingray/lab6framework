@@ -83,7 +83,7 @@ namespace EventClasses
             return customers;
         }
         /// <summary>
-        /// Deletes the customer identified by the id.
+        /// Deletes the customer
         /// </summary>
         public static void Delete(CustomerProps c)
         {
@@ -160,7 +160,7 @@ namespace EventClasses
                     if (value.Length >= 1 && value.Length <= 100)
                     {
                         // the name rule is not broken
-                        // set the name propert to the new value
+                        // set the name property to the new value
                         mRules.RuleBroken("name", false);
                         ((CustomerProps)mProps).name = value;
                         mIsDirty = true;
@@ -168,7 +168,7 @@ namespace EventClasses
 
                     else
                     {
-                        throw new ArgumentException("Name must be between 1 and 100 characters");
+                        throw new ArgumentException("Name must be between 1 and 100 characters, inclusive");
                     }
                 }
             }
@@ -188,7 +188,7 @@ namespace EventClasses
                     // if the length is greater than or equal to 1 and less than or equal to 50
                     if (value.Length >= 1 && value.Length <= 50)
                     {
-                        // the name rule is not broken
+                        // the address rule is not broken
                         // set the address property to the new value
                         mRules.RuleBroken("address", false);
                         ((CustomerProps)mProps).address = value;
@@ -197,7 +197,7 @@ namespace EventClasses
 
                     else
                     {
-                        throw new ArgumentException("Address must be between 1 and 50 characters");
+                        throw new ArgumentException("Address must be between 1 and 50 characters, inclusive");
                     }
                 }
             }
@@ -217,8 +217,8 @@ namespace EventClasses
                     // if the length is greater than or equal to 1 and less than or equal to 20
                     if (value.Length >= 1 && value.Length <= 20)
                     {
-                        // the name rule is not broken
-                        // set the address property to the new value
+                        // the city rule is not broken
+                        // set the city property to the new value
                         mRules.RuleBroken("city", false);
                         ((CustomerProps)mProps).city = value;
                         mIsDirty = true;
@@ -226,7 +226,7 @@ namespace EventClasses
 
                     else
                     {
-                        throw new ArgumentException("Name must be between 1 and 20 characters");
+                        throw new ArgumentException("Name must be between 1 and 20 characters, inclusive");
                     }
                 }
             }
@@ -246,8 +246,8 @@ namespace EventClasses
                     // if the length is 2
                     if (value.Length == 2)
                     {
-                        // the name rule is not broken
-                        // set the address property to the new value
+                        // the state rule is not broken
+                        // set the state property to the new value
                         mRules.RuleBroken("state", false);
                         ((CustomerProps)mProps).state = value.ToUpper();
                         mIsDirty = true;
@@ -275,8 +275,8 @@ namespace EventClasses
                     // if the length is greater than or equal to 1 and less than or equal to 15
                     if (value.Length >= 1 && value.Length <= 15)
                     {
-                        // the name rule is not broken
-                        // set the address property to the new value
+                        // the zipcode rule is not broken
+                        // set the zipcode property to the new value
                         mRules.RuleBroken("zipcode", false);
                         ((CustomerProps)mProps).zipcode = value;
                         mIsDirty = true;
@@ -284,7 +284,7 @@ namespace EventClasses
 
                     else
                     {
-                        throw new ArgumentException("Zip Code must be between 1 and 15 characters");
+                        throw new ArgumentException("Zip Code must be between 1 and 15 characters, inclusive");
                     }
                 }
             }

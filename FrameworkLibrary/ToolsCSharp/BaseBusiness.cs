@@ -143,7 +143,7 @@ namespace ToolsCSharp
             }
         }
 
-        // loads the object from the database based on it's key
+        // loads the object from the database based on its key
         public virtual void Load(Object key)
         {
             mProps = mdbReadable.Retrieve(key);
