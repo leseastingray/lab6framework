@@ -91,7 +91,7 @@ namespace EventClasses
             db.Delete(c);
         }
         /// <summary>
-        /// 
+        /// defaults
         /// </summary>		
         protected override void SetDefaultProperties()
         {

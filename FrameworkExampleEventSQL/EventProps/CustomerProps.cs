@@ -17,22 +17,22 @@ namespace EventPropsClasses
 
         #region instance variables - all the fields in the current database
         /// <summary>
-        /// 
+        /// customer id
         /// </summary>
         public int ID = Int32.MinValue;
 
         /// <summary>
-        /// 
+        /// customer name
         /// </summary>
         public string name = "";
 
         /// <summary>
-        /// 
+        /// customer address
         /// </summary>
         public string address = "";
 
         /// <summary>
-        /// 
+        /// customer city
         /// </summary>
         public string city = "";
 
@@ -42,7 +42,7 @@ namespace EventPropsClasses
         public string state = "";
 
         /// <summary>
-        /// 
+        /// customer zipcode
         /// </summary>
         public string zipcode = "";
 
@@ -78,6 +78,10 @@ namespace EventPropsClasses
 
         // I don't always want to generate xml in the db class so the 
         // props class can read in from xml
+        /// <summary>
+        /// takes db data reader as parameter
+        /// </summary>
+        /// <param name="dr"></param>
         public void SetState(DBDataReader dr)
         {
             this.ID = (Int32)dr["CustomerID"];
@@ -91,7 +95,7 @@ namespace EventPropsClasses
         }
 
         /// <summary>
-        /// 
+        /// takes xml string parameter
         /// </summary>
         public void SetState(string xml)
         {
