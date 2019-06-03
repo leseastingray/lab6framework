@@ -96,67 +96,52 @@ namespace EventTestClasses
         }
 
         [Test]
-        // dunno what is up with this one
-        public void TestStaticDelete()
-        {
-            Event.Delete(2, dataSource);
-            Assert.Throws<Exception>(() => new Event(2, dataSource));
-        }
-
-        [Test]
-        public void TestStaticGetList()
-        {
-            List<Event> events = Event.GetList(dataSource);
-            Assert.AreEqual(2, events.Count);
-            Assert.AreEqual(1, events[0].ID);
-            Assert.AreEqual("First Event", events[0].Title);
-        }
-
-        [Test]
         public void TestGetList()
         {
-            Event e = new Event(dataSource);
-            List<Event> events = (List<Event>)e.GetList();
-            Assert.AreEqual(2, events.Count);
-            Assert.AreEqual(1, events[0].ID);
-            Assert.AreEqual("First Event", events[0].Title);
-        }
-
-        // *** I added this
-        [Test]
-        public void TestGetTable()
-        {
-            DataTable events = Event.GetTable(dataSource);
-            Assert.AreEqual(events.Rows.Count, 2);
+            // 1  Molunguri, A  1108 Johanna Bay Drive  Birmingham AL 35216-6909 
+            Customer c = new Customer(dataSource);
+            List<Customer> customers = (List<Customer>)c.GetList();
+            Assert.AreEqual(696, customers.Count);
+            Assert.AreEqual(1, customers[0].ID);
+            Assert.AreEqual("Molunguri, A", customers[0].Name);
         }
 
         [Test]
         public void TestNoRequiredPropertiesNotSet()
         {
-            // not in Data Store - userid, title and description must be provided
-            Event e = new Event(dataSource);
-            Assert.Throws<Exception>(() => e.Save());
+            // not in Data Store - name, address, city, state, and zipcode must be provided
+            Customer c = new Customer(dataSource);
+            Assert.Throws<Exception>(() => c.Save());
         }
 
         [Test]
         public void TestSomeRequiredPropertiesNotSet()
         {
-            // not in Data Store - userid, title and description must be provided
-            Event e = new Event(dataSource);
-            Assert.Throws<Exception>(() => e.Save());
-            e.UserID = 1;
-            Assert.Throws<Exception>(() => e.Save());
-            e.Title = "this is a test";
-            Assert.Throws<Exception>(() => e.Save());
+            // not in Data Store - name, address, city, state, and zipcode must be provided
+            Customer c = new Customer(dataSource);
+            Assert.Throws<Exception>(() => c.Save());
+            c.Name = "Ray, Manta";
+            Assert.Throws<Exception>(() => c.Save());
+            c.Address = "test ocean";
+            Assert.Throws<Exception>(() => c.Save());
+            c.City = "coral reef";
+            Assert.Throws<Exception>(() => c.Save());
+            c.State = "HI";
+            Assert.Throws<Exception>(() => c.Save());
         }
-
+        // Invalid Property Settings Tests
         [Test]
-        public void TestInvalidPropertyUserIDSet()
+        public void TestInvalidPropertyStateSet()
         {
-            Event e = new Event(dataSource);
-            Assert.Throws<ArgumentOutOfRangeException>(() => e.UserID = -1);
+            Customer c = new Customer(dataSource);
+            Assert.Throws<ArgumentException>(() => c.State = "Hawaii");
         }
-
+        [Test]
+        public void TestInvalidPropertyZipcodeSet()
+        {
+            Customer c = new Customer(dataSource);
+            Assert.Throws<ArgumentException>(() => c.Zipcode = "1234567890123456789");
+        }
         // *** I added this
         [Test]
         public void TestConcurrencyIssue()

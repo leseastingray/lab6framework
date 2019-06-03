@@ -83,6 +83,14 @@ namespace EventClasses
             return customers;
         }
         /// <summary>
+        /// Deletes the customer identified by the id.
+        /// </summary>
+        public static void Delete(CustomerProps c)
+        {
+            CustomerDB db = new CustomerDB();
+            db.Delete(c);
+        }
+        /// <summary>
         /// 
         /// </summary>		
         protected override void SetDefaultProperties()
