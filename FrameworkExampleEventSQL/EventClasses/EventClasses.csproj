@@ -62,6 +62,7 @@
   <ItemGroup>
     <None Include="Customer.cd" />
     <None Include="Event.cd" />
+    <None Include="Product.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

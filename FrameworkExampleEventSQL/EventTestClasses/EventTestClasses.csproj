@@ -51,7 +51,9 @@
     <Compile Include="CustomerPropsTests.cs" />
     <Compile Include="CustomerTests.cs" />
     <Compile Include="EventTests.cs" />
+    <Compile Include="ProductDBTests.cs" />
     <Compile Include="ProductPropsTests.cs" />
+    <Compile Include="ProductTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

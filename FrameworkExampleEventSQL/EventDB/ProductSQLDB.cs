@@ -74,7 +74,7 @@ namespace EventDBClasses
 
         public bool Delete(IBaseProps p)
         {
-            CustomerProps props = (CustomerProps)p;
+            ProductProps props = (ProductProps)p;
             int rowsAffected = 0;
 
             DBCommand command = new DBCommand();
