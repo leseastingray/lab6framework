@@ -167,7 +167,7 @@ namespace EventClasses
 
                     else
                     {
-                        throw new ArgumentException("Name must be between 1 and 10 characters");
+                        throw new ArgumentException("Product Code must be between 1 and 10 characters");
                     }
                 }
             }
